@@ -1,0 +1,301 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local eria24iorghd = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local UICorner = Instance.new("UICorner")
+local Title = Instance.new("TextLabel")
+local Toggle = Instance.new("TextButton")
+local UICorner_2 = Instance.new("UICorner")
+local Unload = Instance.new("TextButton")
+local UICorner_3 = Instance.new("UICorner")
+local Multipler = Instance.new("TextBox")
+local UICorner_4 = Instance.new("UICorner")
+local ESPSizeMultiplier = Instance.new("TextLabel")
+local HIDE = Instance.new("TextButton")
+
+--Properties:
+
+eria24iorghd.Name = "eria2!4iorghd"
+eria24iorghd.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+eria24iorghd.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = eria24iorghd
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.0332805067, 0, 0.450586259, 0)
+Frame.Size = UDim2.new(0, 349, 0, 296)
+
+UICorner.Parent = Frame
+
+Title.Name = "Title"
+Title.Parent = Frame
+Title.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Title.BackgroundTransparency = 1.000
+Title.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Title.BorderSizePixel = 0
+Title.Position = UDim2.new(0.212034389, 0, 0.055555556, 0)
+Title.Size = UDim2.new(0, 200, 0, 50)
+Title.Font = Enum.Font.SourceSans
+Title.Text = "nico's nextbots ESP"
+Title.TextColor3 = Color3.fromRGB(0, 0, 0)
+Title.TextScaled = true
+Title.TextSize = 14.000
+Title.TextWrapped = true
+
+Toggle.Name = "Toggle"
+Toggle.Parent = Frame
+Toggle.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.BackgroundTransparency = 0.500
+Toggle.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.BorderSizePixel = 0
+Toggle.Position = UDim2.new(0.0573066026, 0, 0.222847804, 0)
+Toggle.Size = UDim2.new(0.300000012, 0, 0.300000012, 0)
+Toggle.Font = Enum.Font.SourceSans
+Toggle.Text = "Toggle: Off"
+Toggle.TextColor3 = Color3.fromRGB(0, 0, 0)
+Toggle.TextScaled = true
+Toggle.TextSize = 14.000
+Toggle.TextWrapped = true
+
+UICorner_2.Parent = Toggle
+
+Unload.Name = "Unload"
+Unload.Parent = Frame
+Unload.BackgroundColor3 = Color3.fromRGB(255, 0, 0)
+Unload.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Unload.BorderSizePixel = 0
+Unload.Position = UDim2.new(0.641833782, 0, 0.222847804, 0)
+Unload.Size = UDim2.new(0.300000012, 0, 0.300000012, 0)
+Unload.Font = Enum.Font.SourceSans
+Unload.Text = "Unload"
+Unload.TextColor3 = Color3.fromRGB(0, 0, 0)
+Unload.TextScaled = true
+Unload.TextSize = 14.000
+Unload.TextWrapped = true
+
+UICorner_3.Parent = Unload
+
+Multipler.Name = "Multipler"
+Multipler.Parent = Frame
+Multipler.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+Multipler.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Multipler.BorderSizePixel = 0
+Multipler.Position = UDim2.new(0.212034389, 0, 0.563563585, 0)
+Multipler.Size = UDim2.new(0, 200, 0, 50)
+Multipler.Font = Enum.Font.SourceSans
+Multipler.Text = "1"
+Multipler.TextColor3 = Color3.fromRGB(255, 255, 255)
+Multipler.TextScaled = true
+Multipler.TextSize = 14.000
+Multipler.TextWrapped = true
+
+UICorner_4.Parent = Multipler
+
+ESPSizeMultiplier.Name = "ESP Size Multiplier"
+ESPSizeMultiplier.Parent = Frame
+ESPSizeMultiplier.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ESPSizeMultiplier.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ESPSizeMultiplier.BorderSizePixel = 0
+ESPSizeMultiplier.Position = UDim2.new(0.401146144, 0, 0.229604572, 0)
+ESPSizeMultiplier.Size = UDim2.new(0, 68, 0, 86)
+ESPSizeMultiplier.Font = Enum.Font.SourceSans
+ESPSizeMultiplier.Text = "ESP Size Multipler"
+ESPSizeMultiplier.TextColor3 = Color3.fromRGB(0, 0, 0)
+ESPSizeMultiplier.TextScaled = true
+ESPSizeMultiplier.TextSize = 14.000
+ESPSizeMultiplier.TextWrapped = true
+
+HIDE.Name = "HIDE"
+HIDE.Parent = Frame
+HIDE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+HIDE.BorderColor3 = Color3.fromRGB(0, 0, 0)
+HIDE.BorderSizePixel = 0
+HIDE.Position = UDim2.new(0.0802292228, 0, 0.780405402, 0)
+HIDE.Size = UDim2.new(0, 293, 0, 50)
+HIDE.Font = Enum.Font.SourceSans
+HIDE.Text = "Hide GUI (press right shift to open again)"
+HIDE.TextColor3 = Color3.fromRGB(0, 0, 0)
+HIDE.TextScaled = true
+HIDE.TextSize = 14.000
+HIDE.TextWrapped = true
+
+-- Scripts:
+
+local function LDHPE_fake_script() -- Frame.LocalScript 
+	local script = Instance.new('LocalScript', Frame)
+
+	local Frame = script.Parent
+	local Multipler = Frame.Multipler
+	local multvalue = 1
+	local HideButton = Frame.HIDE
+	local ToggleButton = Frame.Toggle
+	local UnloadButton = Frame.Unload
+	local Toggled = false
+	local killing = false -- danger zone!!!
+	local UIS = game:GetService("UserInputService")
+	local Open = true
+	local keyz = Enum.KeyCode.RightShift
+	local ChangingKeys = false
+	
+	local characters = {
+		-- Uppercase A-Z
+		"A","B","C","D","E","F","G","H","I","J","K","L","M",
+		"N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
+	
+		-- Lowercase a-z
+		"a","b","c","d","e","f","g","h","i","j","k","l","m",
+		"n","o","p","q","r","s","t","u","v","w","x","y","z",
+	
+		-- Digits 0-9
+		"0","1","2","3","4","5","6","7","8","9",
+	
+		-- Special characters
+		"!","\"","#","$","%","&","'","(",")","*","+",
+		",","-",".","/",":",";","<","=",">","?","@",
+		"[","\\","]","^","_","`","{","|","}","~"
+	}
+	
+	
+	
+	function genrandomname(g)
+		local name = ""
+		
+		for i, _ in characters do
+			if i < 20 then
+				local seed
+				if g then
+					seed = tick() * math.random(7532,8212) + g
+				else
+					seed = tick() * math.random(453,4564)
+				end
+				local nrandom = Random.new(seed)
+				
+				
+				name = name..characters[nrandom:NextInteger(1,#characters)]
+			else
+				break
+			end
+		end
+		
+		return name
+	end
+	
+	function ToggleGUI()
+		Open = not Open
+		
+		if Open then
+			Frame.Parent.Enabled = true
+		else
+			Frame.Parent.Enabled = false
+		end
+	end
+	
+	function runthething(part)
+		if part:FindFirstChild("hitbox") then
+			local guiart = Instance.new("BillboardGui")
+			guiart.Name = genrandomname()
+			guiart.Size = UDim2.new(part:FindFirstChild("hitbox").Size.X ,0,part:FindFirstChild("hitbox").Size.Y,0)
+			guiart.Adornee = part:FindFirstChild("hitbox")
+			guiart.AlwaysOnTop = true
+			guiart.Parent = part:FindFirstChild("hitbox")
+	
+			local TextName = Instance.new("TextLabel")
+			TextName.Name = genrandomname()
+			TextName.Size = UDim2.new(1 * multvalue,0,1 * multvalue,0)
+			TextName.TextScaled = true
+			TextName.BackgroundTransparency = 1
+			TextName.Text = part.Name
+			TextName.TextColor3 = Color3.new(1, 0, 0)
+			TextName.Parent = guiart
+			
+			task.spawn(function()
+				while 1 do
+					if Toggled then
+						guiart.Enabled = true	
+					else
+						guiart.Enabled = false
+					end
+						
+					TextName.Size = UDim2.new(1 * multvalue,0,1 * multvalue,0)
+						
+					if killing then
+						guiart:Destroy()
+					end
+	
+					if not part then
+						print("no part")
+						return 
+					end
+	
+					task.wait()
+				end
+			end)
+			
+		end
+	end
+	
+	
+	for _, v in workspace.bots:GetChildren() do
+		runthething(v)
+	end
+	
+	workspace.bots.ChildAdded:Connect(runthething)
+	
+	ToggleButton.MouseButton1Down:Connect(function()
+		Toggled = not Toggled
+		if Toggled then
+			ToggleButton.Text = "Toggled: On"
+		else
+			ToggleButton.Text = "Toggled: Off"
+		end
+	end)
+	
+	UIS.InputBegan:Connect(function(key, GPE)
+		if ChangingKeys and key.UserInputType ~= Enum.UserInputType.MouseButton1 and key.UserInputType ~= Enum.UserInputType.MouseButton2 and key.UserInputType ~= Enum.UserInputType.MouseButton3 and key.UserInputType ~= Enum.UserInputType.MouseWheel and key.UserInputType ~= Enum.UserInputType.MouseMovement then
+			print("test")
+			keyz = key.KeyCode
+			ChangingKeys = false
+		else
+			if not GPE and key.KeyCode == keyz then
+				ToggleGUI()
+			end
+		end
+	
+		
+	
+	end)
+	
+	HideButton.MouseButton1Down:Connect(function()
+	
+		
+		ChangingKeys = true
+		
+		repeat
+			HideButton.Text = "Waiting for input"
+			wait(1)
+			HideButton.Text = "Waiting for input."
+			wait(1)
+			HideButton.Text = "Waiting for input.."
+			wait(1)
+			HideButton.Text = "Waiting for input..."
+			wait(1)
+		until ChangingKeys == false
+		
+		HideButton.Text = "Hide GUI (press "..tostring(keyz.Name).." to open again)"
+	end)
+	
+	
+	
+	UnloadButton.MouseButton1Down:Connect(function()
+		print("Goodbye world...")
+		killing = true
+		Frame.Parent:Destroy()
+	end)
+	
+	HideButton.Text = "Hide GUI (press "..tostring(keyz.Name).." to open again)"
+end
+coroutine.wrap(LDHPE_fake_script)()
