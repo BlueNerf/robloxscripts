@@ -21,6 +21,7 @@ local HIDE = Instance.new("TextButton")
 eria24iorghd.Name = "eria2!4iorghd"
 eria24iorghd.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
 eria24iorghd.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+eria24iorghd.ResetOnSpawn = false
 
 Frame.Parent = eria24iorghd
 Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
@@ -140,30 +141,30 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 	local Open = true
 	local keyz = Enum.KeyCode.RightShift
 	local ChangingKeys = false
-	
+
 	local characters = {
 		-- Uppercase A-Z
 		"A","B","C","D","E","F","G","H","I","J","K","L","M",
 		"N","O","P","Q","R","S","T","U","V","W","X","Y","Z",
-	
+
 		-- Lowercase a-z
 		"a","b","c","d","e","f","g","h","i","j","k","l","m",
 		"n","o","p","q","r","s","t","u","v","w","x","y","z",
-	
+
 		-- Digits 0-9
 		"0","1","2","3","4","5","6","7","8","9",
-	
+
 		-- Special characters
 		"!","\"","#","$","%","&","'","(",")","*","+",
 		",","-",".","/",":",";","<","=",">","?","@",
 		"[","\\","]","^","_","`","{","|","}","~"
 	}
-	
-	
-	
+
+
+
 	function genrandomname(g)
 		local name = ""
-		
+
 		for i, _ in characters do
 			if i < 20 then
 				local seed
@@ -173,27 +174,27 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 					seed = tick() * math.random(453,4564)
 				end
 				local nrandom = Random.new(seed)
-				
-				
+
+
 				name = name..characters[nrandom:NextInteger(1,#characters)]
 			else
 				break
 			end
 		end
-		
+
 		return name
 	end
-	
+
 	function ToggleGUI()
 		Open = not Open
-		
+
 		if Open then
 			Frame.Parent.Enabled = true
 		else
 			Frame.Parent.Enabled = false
 		end
 	end
-	
+
 	function runthething(part)
 		if part:FindFirstChild("hitbox") then
 			local guiart = Instance.new("BillboardGui")
@@ -202,7 +203,7 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 			guiart.Adornee = part:FindFirstChild("hitbox")
 			guiart.AlwaysOnTop = true
 			guiart.Parent = part:FindFirstChild("hitbox")
-	
+
 			local TextName = Instance.new("TextLabel")
 			TextName.Name = genrandomname()
 			TextName.Size = UDim2.new(1 * multvalue,0,1 * multvalue,0)
@@ -211,7 +212,7 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 			TextName.Text = part.Name
 			TextName.TextColor3 = Color3.new(1, 0, 0)
 			TextName.Parent = guiart
-			
+
 			task.spawn(function()
 				while 1 do
 					if Toggled then
@@ -219,32 +220,32 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 					else
 						guiart.Enabled = false
 					end
-						
+
 					TextName.Size = UDim2.new(1 * multvalue,0,1 * multvalue,0)
-						
+
 					if killing then
 						guiart:Destroy()
 					end
-	
+
 					if not part then
 						print("no part")
 						return 
 					end
-	
+
 					task.wait()
 				end
 			end)
-			
+
 		end
 	end
-	
-	
+
+
 	for _, v in workspace.bots:GetChildren() do
 		runthething(v)
 	end
-	
+
 	workspace.bots.ChildAdded:Connect(runthething)
-	
+
 	ToggleButton.MouseButton1Down:Connect(function()
 		Toggled = not Toggled
 		if Toggled then
@@ -253,7 +254,7 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 			ToggleButton.Text = "Toggled: Off"
 		end
 	end)
-	
+
 	UIS.InputBegan:Connect(function(key, GPE)
 		if ChangingKeys and key.UserInputType ~= Enum.UserInputType.MouseButton1 and key.UserInputType ~= Enum.UserInputType.MouseButton2 and key.UserInputType ~= Enum.UserInputType.MouseButton3 and key.UserInputType ~= Enum.UserInputType.MouseWheel and key.UserInputType ~= Enum.UserInputType.MouseMovement then
 			print("test")
@@ -264,16 +265,16 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 				ToggleGUI()
 			end
 		end
-	
-		
-	
+
+
+
 	end)
-	
+
 	HideButton.MouseButton1Down:Connect(function()
-	
-		
+
+
 		ChangingKeys = true
-		
+
 		repeat
 			HideButton.Text = "Waiting for input"
 			wait(1)
@@ -284,18 +285,18 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 			HideButton.Text = "Waiting for input..."
 			wait(1)
 		until ChangingKeys == false
-		
+
 		HideButton.Text = "Hide GUI (press "..tostring(keyz.Name).." to open again)"
 	end)
-	
-	
-	
+
+
+
 	UnloadButton.MouseButton1Down:Connect(function()
 		print("Goodbye world...")
 		killing = true
 		Frame.Parent:Destroy()
 	end)
-	
+
 	HideButton.Text = "Hide GUI (press "..tostring(keyz.Name).." to open again)"
 end
 coroutine.wrap(LDHPE_fake_script)()
