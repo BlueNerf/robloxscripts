@@ -196,46 +196,33 @@ local function LDHPE_fake_script() -- Frame.LocalScript
 		if part:FindFirstChild("hitbox") then
 			local guiart = Instance.new("BillboardGui")
 			guiart.Name = genrandomname()
-			guiart.Size = UDim2.new(part:FindFirstChild("hitbox").Size.X ,0,part:FindFirstChild("hitbox").Size.Y,0)
+			guiart.Size = UDim2.new(part:FindFirstChild("hitbox").Size.X * multvalue,0,part:FindFirstChild("hitbox").Size.Y * multvalue,0)
 			guiart.Adornee = part:FindFirstChild("hitbox")
 			guiart.AlwaysOnTop = true
 			guiart.Parent = part:FindFirstChild("hitbox")
 
 			local TextName = Instance.new("TextLabel")
 			TextName.Name = genrandomname()
-			TextName.Size = UDim2.new(1 * multvalue,0,1 * multvalue,0)
+			TextName.Size = UDim2.new(1,0,1,0)
 			TextName.TextScaled = true
 			TextName.BackgroundTransparency = 1
 			TextName.Text = part.Name
 			TextName.TextColor3 = Color3.new(1, 0, 0)
 			TextName.Parent = guiart
+			
+			ESPSizeMultiplier:GetPropertyChangedSignal():Connect(function()
+				guiart.Size = UDim2.new(part:FindFirstChild("hitbox").Size.X * multvalue,0,part:FindFirstChild("hitbox").Size.Y * multvalue,0)
+			end)
 
 			task.spawn(function()
 				while 1 do
-					if Toggled then
-						guiart.Enabled = true	
-					else
-						guiart.Enabled = false
-					end
-
-					TextName.Size = UDim2.new(1 * multvalue,0,1 * multvalue,0)
-
 					if killing then
 						guiart:Destroy()
 					end
-
-					if not part then
-						print("no part")
-						return 
-					end
-
-					task.wait()
 				end
 			end)
-
 		end
 	end
-
 
 	for _, v in workspace.bots:GetChildren() do
 		runthething(v)
